@@ -100,8 +100,6 @@ const jsonLd = {
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import { ThemeProvider } from "next-themes";
-import Script from "next/script";
-import BannerAd from "@/app/components/BannerAd";
 
 import { Toaster } from "react-hot-toast";
 
@@ -118,9 +116,7 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
     >
       <head suppressHydrationWarning>
-        <meta name="monetag" content="7bfd0e1d7eaa7ea9b2cdd67eeba99ff1"/>
-        <Script src="https://quge5.com/88/tag.min.js" data-zone="285722" async data-cfasync="false" />
-        <BannerAd />
+        <meta name="referrer" content="no-referrer-when-downgrade" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -130,21 +126,7 @@ export default function RootLayout({
       <body suppressHydrationWarning className={`${ibmPlexSans.className} antialiased min-h-full flex flex-col bg-zinc-50 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100 transition-colors duration-300 overflow-x-hidden`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           <Navbar />
-          
-          {/* Left Side Ads */}
-          <div className="hidden min-[1650px]:flex fixed top-24 left-4 bottom-4 flex-col gap-6 z-0 overflow-y-auto w-[300px] pointer-events-auto" style={{ scrollbarWidth: 'none' }}>
-              <iframe src="/ad1.html" width="300" height="250" className="border-none rounded-2xl bg-zinc-100 dark:bg-zinc-800 shrink-0 shadow-sm" scrolling="no" title="Advertisement" />
-              <iframe src="/ad1.html" width="300" height="250" className="border-none rounded-2xl bg-zinc-100 dark:bg-zinc-800 shrink-0 shadow-sm" scrolling="no" title="Advertisement" />
-              <iframe src="/ad1.html" width="300" height="250" className="border-none rounded-2xl bg-zinc-100 dark:bg-zinc-800 shrink-0 shadow-sm" scrolling="no" title="Advertisement" />
-          </div>
-
-          {/* Right Side Ads */}
-          <div className="hidden min-[1650px]:flex fixed top-24 right-4 bottom-4 flex-col gap-6 z-0 overflow-y-auto w-[300px] pointer-events-auto" style={{ scrollbarWidth: 'none' }}>
-              <iframe src="/ad1.html" width="300" height="250" className="border-none rounded-2xl bg-zinc-100 dark:bg-zinc-800 shrink-0 shadow-sm" scrolling="no" title="Advertisement" />
-              <iframe src="/ad1.html" width="300" height="250" className="border-none rounded-2xl bg-zinc-100 dark:bg-zinc-800 shrink-0 shadow-sm" scrolling="no" title="Advertisement" />
-          </div>
-
-          <main className="flex-1 flex flex-col relative z-10">{children}</main>
+          <main className="flex-1 flex flex-col">{children}</main>
           <Footer />
           <Toaster
             position="top-center"
