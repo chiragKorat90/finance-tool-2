@@ -28,7 +28,7 @@ export function middleware(request: NextRequest) {
   }
 
   // Extract IPs and Headers
-  const ip = request.ip || request.headers.get('x-forwarded-for') || request.headers.get('cf-connecting-ip') || request.headers.get('x-real-ip') || 'unknown';
+  const ip = request.headers.get('x-forwarded-for') || request.headers.get('cf-connecting-ip') || request.headers.get('x-real-ip') || 'unknown';
   const userAgent = request.headers.get('user-agent') || '-';
   const referer = request.headers.get('referer') || '-';
   const method = request.method;
