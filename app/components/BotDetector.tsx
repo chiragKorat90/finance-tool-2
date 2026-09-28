@@ -16,7 +16,7 @@ export default function BotDetector() {
       
       reportedEvents.current.add(eventKey);
 
-      fetch("/api/bot-events", {
+      fetch("/api/events", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
