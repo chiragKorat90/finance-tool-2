@@ -34,11 +34,6 @@ export default function ContactPage() {
     return (
         <div className="mx-auto w-full max-w-[1400px] px-4 py-8 sm:px-6 sm:py-12 lg:px-8 flex-1 flex justify-between gap-8 relative">
 
-            <div className="hidden xl:flex flex-col justify-between w-[300px] shrink-0" style={{ minHeight: 'calc(100vh - 200px)' }}>
-                <div className="sticky top-12 w-[300px] h-[250px] overflow-hidden rounded-2xl flex justify-center items-center pointer-events-auto">
-</div>
-
-            </div>
 
             <div className="flex-1 max-w-3xl w-full min-w-0 relative z-10 flex flex-col">
                 <div className="mb-6">
@@ -107,8 +102,7 @@ export default function ContactPage() {
             </div>
             </div>
             
-            {/* Empty Right Sidebar for balance */}
-            <div className="hidden xl:block w-[300px] shrink-0"></div>
+
         </div>
     );
 }

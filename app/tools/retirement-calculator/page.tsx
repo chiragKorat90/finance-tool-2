@@ -121,15 +121,7 @@ export default function RetirementCalculator() {
                 suppressHydrationWarning
             />
                         <div className="w-full max-w-[1600px] mx-auto flex flex-col xl:flex-row justify-center items-start gap-8 px-4 relative">
-
-                <div className="hidden xl:flex flex-col w-[300px] shrink-0 sticky top-24 gap-6">
-
-
-
-                </div>
-
-                {/* Main Content */}
-                <div className="flex-1 w-full max-w-5xl min-w-0 flex flex-col gap-8">
+                <div className="flex-1 w-full max-w-5xl min-w-0 flex flex-col gap-8 mx-auto">
                     <ToolWrapper
                 title="Retirement Calculator"
                 description="Plan for your golden years by estimating your retirement corpus."
@@ -272,13 +264,7 @@ export default function RetirementCalculator() {
 
                 </div> {/* End Main Content Area */}
             
-
-                <div className="hidden xl:flex flex-col w-[300px] shrink-0 sticky top-24 gap-6">
-
-
-
                 </div>
-            </div>
         </>
     );
 }
