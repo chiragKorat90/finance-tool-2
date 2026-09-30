@@ -36,10 +36,27 @@ export default function BotDetector() {
 
     // 2. Report user interactions (scroll, mousemove, clicks, inputs)
     let scrollTimeout: NodeJS.Timeout;
+    let lastScrollY = typeof window !== 'undefined' ? window.scrollY : 0;
+    let lastScrollTime = Date.now();
+    let maxScrollSpeed = 0;
+
     const handleScroll = () => {
+      const currentY = window.scrollY;
+      const currentTime = Date.now();
+      const dt = Math.max(currentTime - lastScrollTime, 1);
+      const speed = Math.abs(currentY - lastScrollY) / (dt / 1000);
+      
+      if (speed > maxScrollSpeed) {
+        maxScrollSpeed = speed;
+      }
+      
+      lastScrollY = currentY;
+      lastScrollTime = currentTime;
+
       clearTimeout(scrollTimeout);
       scrollTimeout = setTimeout(() => {
-        reportEvent("scroll_interaction", undefined, false);
+        reportEvent("scroll_interaction", `max_speed_${Math.round(maxScrollSpeed)}_px_sec`, false);
+        maxScrollSpeed = 0;
       }, 1000); // 1-second debounce for scroll
     };
 
@@ -51,10 +68,14 @@ export default function BotDetector() {
       }, 2000); // 2-second debounce for mouse move
     };
 
+    let clickCount = 0;
     const handleClick = (e: MouseEvent) => {
+      clickCount++;
       const target = e.target as HTMLElement;
       const button = target.closest('button');
       const link = target.closest('a');
+      
+      const countPrefix = `total_clicks_${clickCount}`;
       
       if (button) {
         let btnName = button.innerText?.trim().substring(0, 30).replace(/\s+/g, '_');
@@ -62,16 +83,18 @@ export default function BotDetector() {
           btnName = button.getAttribute('aria-label') || button.getAttribute('title') || button.id || button.name || 'icon_button';
           btnName = btnName.substring(0, 30).replace(/\s+/g, '_');
         }
-        reportEvent("button_click", btnName, false);
+        reportEvent("button_click", `${countPrefix}_${btnName}`, false);
       } else if (link) {
         let linkName = link.innerText?.trim().substring(0, 30).replace(/\s+/g, '_');
         if (!linkName) {
           linkName = link.getAttribute('aria-label') || link.getAttribute('title') || link.id || 'icon_link';
           linkName = linkName.substring(0, 30).replace(/\s+/g, '_');
         }
-        reportEvent("link_click", linkName, false);
+        reportEvent("link_click", `${countPrefix}_${linkName}`, false);
       } else if (target.tagName === 'INPUT' && (target as HTMLInputElement).type === 'submit') {
-        reportEvent("button_click", (target as HTMLInputElement).value || 'submit', false);
+        reportEvent("button_click", `${countPrefix}_${(target as HTMLInputElement).value || 'submit'}`, false);
+      } else {
+        reportEvent("page_click", countPrefix, false);
       }
     };
 
