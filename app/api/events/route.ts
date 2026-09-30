@@ -20,8 +20,31 @@ export async function POST(request: NextRequest) {
       user_agent: userAgentStr,
       browser: browserName,
       js_verified: true,
-      client_event_type: data.type || 'unknown',
+      client_event_type: data.client_event_type || 'unknown',
+      event_details: data.event_details || null,
       url: data.url || '-',
+
+      // Useful bot signals
+      webdriver: data.webdriver,
+      platform: data.platform,
+      language: data.language,
+      languages: data.languages,
+      hardwareConcurrency: data.hardwareConcurrency,
+      deviceMemory: data.deviceMemory,
+      screenWidth: data.screenWidth,
+      screenHeight: data.screenHeight,
+
+      // Interaction
+      eventTimestamp: data.eventTimestamp,
+      mouseX: data.mouseX,
+      mouseY: data.mouseY,
+      scrollY: data.scrollY,
+
+      // Session behaviour
+      timeSinceSessionStart: data.timeSinceSessionStart,
+      eventCount: data.eventCount,
+      clickCount: data.clickCount,
+      scrollCount: data.scrollCount
     };
 
     console.log('\n[TRAFFIC_LOG_CLIENT]\n', JSON.stringify(logData, null, 2), '\n');

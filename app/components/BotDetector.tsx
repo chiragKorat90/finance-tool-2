@@ -8,6 +8,13 @@ export default function BotDetector() {
   const reportedEvents = useRef(new Set<string>());
 
   useEffect(() => {
+    let sessionStartTime = Date.now();
+    let eventCount = 0;
+    let scrollCount = 0;
+    let currentMouseX = 0;
+    let currentMouseY = 0;
+    let clickCount = 0;
+
     // 1. Report JS execution (page load)
     const reportEvent = (type: string, details?: string, dedupe: boolean = true) => {
       // Prevent reporting the exact same event multiple times on the same page load
@@ -17,15 +24,35 @@ export default function BotDetector() {
         reportedEvents.current.add(eventKey);
       }
 
+      eventCount++;
+      const payload: any = {
+        client_event_type: type,
+        event_details: details || null,
+        url: pathname,
+        webdriver: navigator.webdriver,
+        platform: navigator.platform,
+        language: navigator.language,
+        languages: navigator.languages,
+        hardwareConcurrency: navigator.hardwareConcurrency,
+        deviceMemory: (navigator as any).deviceMemory,
+        screenWidth: window.screen ? window.screen.width : 0,
+        screenHeight: window.screen ? window.screen.height : 0,
+        eventTimestamp: new Date().toISOString(),
+        mouseX: currentMouseX,
+        mouseY: currentMouseY,
+        scrollY: window.scrollY,
+        timeSinceSessionStart: Date.now() - sessionStartTime,
+        eventCount,
+        clickCount,
+        scrollCount
+      };
+
       fetch("/api/events", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          type: details ? `${type}_${details}` : type,
-          url: pathname,
-        }),
+        body: JSON.stringify(payload),
       }).catch((e) => {
         // Silently ignore tracking errors
       });
@@ -41,6 +68,7 @@ export default function BotDetector() {
     let maxScrollSpeed = 0;
 
     const handleScroll = () => {
+      scrollCount++;
       const currentY = window.scrollY;
       const currentTime = Date.now();
       const dt = Math.max(currentTime - lastScrollTime, 1);
@@ -61,14 +89,15 @@ export default function BotDetector() {
     };
 
     let mouseTimeout: NodeJS.Timeout;
-    const handleMouseMove = () => {
+    const handleMouseMove = (e: MouseEvent) => {
+      currentMouseX = e.clientX;
+      currentMouseY = e.clientY;
       clearTimeout(mouseTimeout);
       mouseTimeout = setTimeout(() => {
         reportEvent("mouse_movement", undefined, false);
       }, 2000); // 2-second debounce for mouse move
     };
 
-    let clickCount = 0;
     const handleClick = (e: MouseEvent) => {
       clickCount++;
       const target = e.target as HTMLElement;
