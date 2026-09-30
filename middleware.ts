@@ -48,8 +48,7 @@ export function middleware(request: NextRequest) {
     cookie_enabled: !!request.cookies.get('session_id'), // if they sent it back, it's enabled
   };
 
-  // In a real production app, you might send this to a database or external logging service (like Datadog, ELK, or a custom API)
-  console.log('[TRAFFIC_LOG]', JSON.stringify(logData));
+  console.log('\n[TRAFFIC_LOG]\n', JSON.stringify(logData, null, 2), '\n');
 
   return response;
 }

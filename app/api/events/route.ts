@@ -20,7 +20,7 @@ export async function POST(request: NextRequest) {
       url: data.url || '-',
     };
 
-    console.log('[TRAFFIC_LOG_CLIENT]', JSON.stringify(logData));
+    console.log('\n[TRAFFIC_LOG_CLIENT]\n', JSON.stringify(logData, null, 2), '\n');
 
     return NextResponse.json({ success: true });
   } catch (error) {
