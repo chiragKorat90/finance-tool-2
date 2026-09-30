@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+import { NextResponse, userAgent } from 'next/server';
 import type { NextRequest } from 'next/server';
 
 export function middleware(request: NextRequest) {
@@ -29,10 +29,13 @@ export function middleware(request: NextRequest) {
 
   // Extract IPs and Headers
   const ip = request.headers.get('x-forwarded-for') || request.headers.get('cf-connecting-ip') || request.headers.get('x-real-ip') || 'unknown';
-  const userAgent = request.headers.get('user-agent') || '-';
+  const userAgentStr = request.headers.get('user-agent') || '-';
   const referer = request.headers.get('referer') || '-';
   const method = request.method;
   const geoCountry = request.headers.get('cf-ipcountry') || request.headers.get('x-vercel-ip-country') || 'unknown';
+
+  const { browser } = userAgent(request);
+  const browserName = browser.name || 'unknown';
 
   // Build structured log object
   const logData = {
@@ -42,7 +45,8 @@ export function middleware(request: NextRequest) {
     session_id: sessionId,
     url,
     method,
-    user_agent: userAgent,
+    user_agent: userAgentStr,
+    browser: browserName,
     referer,
     geo_country: geoCountry,
     cookie_enabled: !!request.cookies.get('session_id'), // if they sent it back, it's enabled
