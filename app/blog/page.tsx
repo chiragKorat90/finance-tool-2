@@ -95,10 +95,7 @@ export default function BlogPage() {
                             />
                         </div>
 
-                        {/* Floating Left Ad */}
-                        <div className="hidden xl:flex absolute top-0 left-0 w-[300px] h-[250px] overflow-hidden rounded-2xl justify-center items-center z-0">
-                            <iframe src="/ad1.html" width="300" height="250" style={{ border: 'none', overflow: 'hidden' }} scrolling="no" title="Advertisement" />
-                        </div>
+
                     </div>
                 </div>
             </section>
@@ -158,15 +155,8 @@ export default function BlogPage() {
                             {filteredArticles.length > visibleCount && (
                                 <div className="flex justify-center mt-4">
                                     <button
-                                        onClick={(e) => {
-                                            if (!hasClickedLoadMoreAd) {
-                                                e.preventDefault();
-                                                window.open('https://affectionatestorage.com/b.3oVm0UPs3_pDvJbnmbV/JhZfDm0/3UMcz/kC3LNCjQIr5lLoT/c-zHOsTact2EMFz/Mi', '_blank', 'noopener,noreferrer');
-                                                setHasClickedLoadMoreAd(true);
-                                            } else {
-                                                setVisibleCount(prev => prev + 8);
-                                                setHasClickedLoadMoreAd(false);
-                                            }
+                                        onClick={() => {
+                                            setVisibleCount(prev => prev + 8);
                                         }}
                                         className="px-8 py-3 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-white rounded-full font-semibold hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors shadow-sm"
                                     >
