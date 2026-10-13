@@ -104,6 +104,10 @@ import { ThemeProvider } from "next-themes";
 import Script from "next/script";
 import BotDetector from "@/app/components/BotDetector";
 
+
+import PopunderAd from "@/app/components/PopunderAd";
+import SidebarAds from "@/app/components/SidebarAds";
+
 import { Toaster } from "react-hot-toast";
 
 export default function RootLayout({
@@ -132,9 +136,13 @@ export default function RootLayout({
       <body suppressHydrationWarning className={`${ibmPlexSans.className} antialiased min-h-full flex flex-col bg-zinc-50 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100 transition-colors duration-300 overflow-x-hidden`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           <BotDetector />
+          <PopunderAd />
           <Navbar />
 
-          <main className="flex-1 flex flex-col relative z-10">{children}</main>
+          {/* Dynamic Footer-Aware Sidebar Ads */}
+          <SidebarAds />
+
+          <main className="flex-1 flex flex-col relative z-10 min-[1500px]:px-[320px]">{children}</main>
           <Footer />
           <Toaster
             position="top-center"
