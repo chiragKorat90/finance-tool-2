@@ -57,6 +57,7 @@ export const metadata: Metadata = {
 
   other: {
     "ff798ddb2835c2248764bcc390c440b9ab04b787": "ff798ddb2835c2248764bcc390c440b9ab04b787",
+    "644da434b4058cc18e991021403c031a7c5694a4": "644da434b4058cc18e991021403c031a7c5694a4",
   },
   robots: {
     index: true,
@@ -118,6 +119,10 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
     >
       <head suppressHydrationWarning>
+        <meta
+          name="644da434b4058cc18e991021403c031a7c5694a4"
+          content="644da434b4058cc18e991021403c031a7c5694a4"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
