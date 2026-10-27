@@ -71,6 +71,12 @@ export default function SidebarAds() {
         <BannerAd adKey="right-top" />
         <BannerAd adKey="right-bottom" />
       </aside>
+
+      {/* Mobile / Tablet Bottom Banner Ads (Shown above footer on screens < 1500px: 1 on mobile, 2 side-by-side on tablet/laptop) */}
+      <div className="flex min-[1500px]:hidden flex-col md:flex-row justify-center items-center gap-4 sm:gap-6 py-6 px-4 w-full relative z-10">
+        <BannerAd adKey="mobile-footer-bottom-1" />
+        <BannerAd adKey="mobile-footer-bottom-2" className="hidden md:flex" />
+      </div>
     </>
   );
 }

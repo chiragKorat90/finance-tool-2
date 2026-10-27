@@ -3,6 +3,7 @@
 import React, { useRef, useState } from "react";
 import Link from "next/link";
 import { ArrowBack } from "@mui/icons-material";
+import BannerAd from "@/app/components/BannerAd";
 import emailjs from '@emailjs/browser';
 import toast from 'react-hot-toast';
 
@@ -32,26 +33,26 @@ export default function ContactPage() {
     };
 
     return (
-        <div className="mx-auto w-full max-w-[1400px] px-4 py-8 sm:px-6 sm:py-12 lg:px-8 flex-1 flex justify-between gap-8 relative">
+        <div className="mx-auto w-full max-w-[1400px] px-3 sm:px-6 sm:py-12 lg:px-8 flex-1 flex justify-center gap-8 relative min-w-0">
 
 
-            <div className="flex-1 max-w-3xl w-full min-w-0 relative z-10 flex flex-col">
-                <div className="mb-6">
+            <div className="flex-1 max-w-3xl w-full min-w-0 relative z-10 flex flex-col py-6 sm:py-0">
+                <div className="mb-4 sm:mb-6">
                     <Link
                         href="/"
-                        className="inline-flex items-center gap-1.5 text-sm font-medium text-zinc-500 hover:text-zinc-800 dark:text-zinc-400 dark:hover:text-white transition-colors group"
+                        className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-medium text-zinc-500 hover:text-zinc-800 dark:text-zinc-400 dark:hover:text-white transition-colors group"
                     >
                         <ArrowBack className="h-4 w-4 transition-transform group-hover:-translate-x-0.5" />
                         Back to Home
                     </Link>
                 </div>
 
-                <div className="mb-8">
-                    <div className="h-1 w-12 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 mb-4" />
-                    <h1 className="text-3xl font-extrabold tracking-tight text-zinc-900 dark:text-white sm:text-4xl">
+                <div className="mb-6 sm:mb-8">
+                    <div className="h-1 w-12 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 mb-3 sm:mb-4" />
+                    <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-white">
                         Contact Us
                     </h1>
-                    <p className="mt-2 text-base text-zinc-500 dark:text-zinc-400 max-w-2xl">
+                    <p className="mt-2 text-sm sm:text-base text-zinc-500 dark:text-zinc-400 max-w-2xl">
                         Have a question, feedback, or need support? We&apos;d love to hear from you.
                     </p>
                 </div>
@@ -98,6 +99,12 @@ export default function ContactPage() {
                             )}
                         </button>
                     </form>
+                </div>
+
+                {/* In-Feed Banner Ads (1 on mobile, 2 side-by-side on tablet) */}
+                <div className="flex min-[1500px]:hidden flex-col md:flex-row justify-center items-center gap-4 sm:gap-6 py-6 w-full">
+                    <BannerAd adKey="contact-page-bottom-1" />
+                    <BannerAd adKey="contact-page-bottom-2" className="hidden md:flex" />
                 </div>
             </div>
             </div>

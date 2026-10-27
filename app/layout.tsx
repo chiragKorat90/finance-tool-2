@@ -123,6 +123,7 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
     >
       <head suppressHydrationWarning>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
         <meta
           name="644da434b4058cc18e991021403c031a7c5694a4"
           content="644da434b4058cc18e991021403c031a7c5694a4"
@@ -133,7 +134,7 @@ export default function RootLayout({
           suppressHydrationWarning
         />
       </head>
-      <body suppressHydrationWarning className={`${ibmPlexSans.className} antialiased min-h-full flex flex-col bg-zinc-50 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100 transition-colors duration-300 overflow-x-hidden`}>
+      <body suppressHydrationWarning className={`${ibmPlexSans.className} antialiased min-h-full flex flex-col bg-zinc-50 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100 transition-colors duration-300 overflow-x-hidden w-full max-w-full`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           <BotDetector />
           <PopunderAd />
@@ -142,7 +143,7 @@ export default function RootLayout({
           {/* Dynamic Footer-Aware Sidebar Ads */}
           <SidebarAds />
 
-          <main className="flex-1 flex flex-col relative z-10 min-[1500px]:px-[320px]">{children}</main>
+          <main className="flex-1 flex flex-col relative z-10 w-full min-w-0 min-[1500px]:px-[320px] overflow-x-hidden">{children}</main>
           <Footer />
           <Toaster
             position="top-center"

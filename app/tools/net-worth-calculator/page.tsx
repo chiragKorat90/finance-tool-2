@@ -60,21 +60,21 @@ export default function NetWorthCalculator() {
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
                 suppressHydrationWarning
             />
-                        <div className="w-full max-w-[1600px] mx-auto flex flex-col xl:flex-row justify-center items-start gap-8 px-4 relative">
-                <div className="flex-1 w-full max-w-5xl min-w-0 flex flex-col gap-8 mx-auto">
+            <div className="w-full max-w-[1600px] mx-auto flex flex-col xl:flex-row justify-center items-start gap-6 sm:gap-8 px-2 sm:px-4 relative">
+                <div className="flex-1 w-full max-w-5xl min-w-0 flex flex-col gap-6 sm:gap-8 mx-auto">
                     <ToolWrapper
                 title="Net Worth Calculator"
                 description="Calculate your true net worth by balancing your assets and liabilities."
             >
-                <div className="flex flex-col lg:flex-row gap-8 w-full max-w-5xl mx-auto py-4">
+                <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 w-full max-w-5xl mx-auto py-2 sm:py-4">
                     {/* Input Section */}
-                    <div className="w-full lg:w-1/2 space-y-8">
+                    <div className="w-full lg:w-1/2 space-y-6 sm:space-y-8">
                         {/* Assets */}
-                        <div className="bg-emerald-50 dark:bg-emerald-900/10 p-6 rounded-2xl border border-emerald-100 dark:border-emerald-800/30">
-                            <h3 className="text-lg font-bold text-emerald-800 dark:text-emerald-400 mb-4 border-b border-emerald-200 dark:border-emerald-800/50 pb-2">Assets (What you own)</h3>
-                            <div className="space-y-4">
+                        <div className="bg-emerald-50 dark:bg-emerald-900/10 p-4 sm:p-6 rounded-2xl border border-emerald-100 dark:border-emerald-800/30">
+                            <h3 className="text-base sm:text-lg font-bold text-emerald-800 dark:text-emerald-400 mb-3 sm:mb-4 border-b border-emerald-200 dark:border-emerald-800/50 pb-2">Assets (What you own)</h3>
+                            <div className="space-y-3 sm:space-y-4">
                                 <div>
-                                    <label className="block text-sm font-semibold text-zinc-700 dark:text-zinc-300 mb-1">Cash & Bank Accounts</label>
+                                    <label className="block text-xs sm:text-sm font-semibold text-zinc-700 dark:text-zinc-300 mb-1">Cash & Bank Accounts</label>
                                     <div className="relative">
                                         <span className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500 font-medium">₹</span>
                                         <input
@@ -82,12 +82,12 @@ export default function NetWorthCalculator() {
                                             value={cash === "" ? "" : cash.toLocaleString('en-IN')}
                                             onChange={handleNumberInput(setCash)}
                                             placeholder="0"
-                                            className="w-full pl-8 pr-4 py-2.5 rounded-xl border border-zinc-200 dark:border-zinc-800 focus:ring-blue-500 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white outline-none transition-all"
+                                            className="w-full pl-8 pr-4 py-2.5 rounded-xl border border-zinc-200 dark:border-zinc-800 focus:ring-blue-500 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white outline-none transition-all text-sm"
                                         />
                                     </div>
                                 </div>
                                 <div>
-                                    <label className="block text-sm font-semibold text-zinc-700 dark:text-zinc-300 mb-1">Investments (Stocks, Mutual Funds, PF)</label>
+                                    <label className="block text-xs sm:text-sm font-semibold text-zinc-700 dark:text-zinc-300 mb-1">Investments (Stocks, Mutual Funds, PF)</label>
                                     <div className="relative">
                                         <span className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500 font-medium">₹</span>
                                         <input
@@ -95,12 +95,12 @@ export default function NetWorthCalculator() {
                                             value={investments === "" ? "" : investments.toLocaleString('en-IN')}
                                             onChange={handleNumberInput(setInvestments)}
                                             placeholder="0"
-                                            className="w-full pl-8 pr-4 py-2.5 rounded-xl border border-zinc-200 dark:border-zinc-800 focus:ring-blue-500 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white outline-none transition-all"
+                                            className="w-full pl-8 pr-4 py-2.5 rounded-xl border border-zinc-200 dark:border-zinc-800 focus:ring-blue-500 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white outline-none transition-all text-sm"
                                         />
                                     </div>
                                 </div>
                                 <div>
-                                    <label className="block text-sm font-semibold text-zinc-700 dark:text-zinc-300 mb-1">Real Estate & Property</label>
+                                    <label className="block text-xs sm:text-sm font-semibold text-zinc-700 dark:text-zinc-300 mb-1">Real Estate & Property</label>
                                     <div className="relative">
                                         <span className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500 font-medium">₹</span>
                                         <input
@@ -108,12 +108,12 @@ export default function NetWorthCalculator() {
                                             value={realEstate === "" ? "" : realEstate.toLocaleString('en-IN')}
                                             onChange={handleNumberInput(setRealEstate)}
                                             placeholder="0"
-                                            className="w-full pl-8 pr-4 py-2.5 rounded-xl border border-zinc-200 dark:border-zinc-800 focus:ring-blue-500 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white outline-none transition-all"
+                                            className="w-full pl-8 pr-4 py-2.5 rounded-xl border border-zinc-200 dark:border-zinc-800 focus:ring-blue-500 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white outline-none transition-all text-sm"
                                         />
                                     </div>
                                 </div>
                                 <div>
-                                    <label className="block text-sm font-semibold text-zinc-700 dark:text-zinc-300 mb-1">Other Assets (Gold, Vehicles)</label>
+                                    <label className="block text-xs sm:text-sm font-semibold text-zinc-700 dark:text-zinc-300 mb-1">Other Assets (Gold, Vehicles)</label>
                                     <div className="relative">
                                         <span className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500 font-medium">₹</span>
                                         <input
@@ -121,7 +121,7 @@ export default function NetWorthCalculator() {
                                             value={otherAssets === "" ? "" : otherAssets.toLocaleString('en-IN')}
                                             onChange={handleNumberInput(setOtherAssets)}
                                             placeholder="0"
-                                            className="w-full pl-8 pr-4 py-2.5 rounded-xl border border-zinc-200 dark:border-zinc-800 focus:ring-blue-500 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white outline-none transition-all"
+                                            className="w-full pl-8 pr-4 py-2.5 rounded-xl border border-zinc-200 dark:border-zinc-800 focus:ring-blue-500 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white outline-none transition-all text-sm"
                                         />
                                     </div>
                                 </div>
@@ -129,11 +129,11 @@ export default function NetWorthCalculator() {
                         </div>
 
                         {/* Liabilities */}
-                        <div className="bg-red-50 dark:bg-red-900/10 p-6 rounded-2xl border border-red-100 dark:border-red-800/30">
-                            <h3 className="text-lg font-bold text-red-800 dark:text-red-400 mb-4 border-b border-red-200 dark:border-red-800/50 pb-2">Liabilities (What you owe)</h3>
-                            <div className="space-y-4">
+                        <div className="bg-red-50 dark:bg-red-900/10 p-4 sm:p-6 rounded-2xl border border-red-100 dark:border-red-800/30">
+                            <h3 className="text-base sm:text-lg font-bold text-red-800 dark:text-red-400 mb-3 sm:mb-4 border-b border-red-200 dark:border-red-800/50 pb-2">Liabilities (What you owe)</h3>
+                            <div className="space-y-3 sm:space-y-4">
                                 <div>
-                                    <label className="block text-sm font-semibold text-zinc-700 dark:text-zinc-300 mb-1">Home Loan</label>
+                                    <label className="block text-xs sm:text-sm font-semibold text-zinc-700 dark:text-zinc-300 mb-1">Home Loan</label>
                                     <div className="relative">
                                         <span className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500 font-medium">₹</span>
                                         <input
@@ -141,12 +141,12 @@ export default function NetWorthCalculator() {
                                             value={homeLoan === "" ? "" : homeLoan.toLocaleString('en-IN')}
                                             onChange={handleNumberInput(setHomeLoan)}
                                             placeholder="0"
-                                            className="w-full pl-8 pr-4 py-2.5 rounded-xl border border-zinc-200 dark:border-zinc-800 focus:ring-red-500 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white outline-none transition-all"
+                                            className="w-full pl-8 pr-4 py-2.5 rounded-xl border border-zinc-200 dark:border-zinc-800 focus:ring-red-500 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white outline-none transition-all text-sm"
                                         />
                                     </div>
                                 </div>
                                 <div>
-                                    <label className="block text-sm font-semibold text-zinc-700 dark:text-zinc-300 mb-1">Auto / Car Loan</label>
+                                    <label className="block text-xs sm:text-sm font-semibold text-zinc-700 dark:text-zinc-300 mb-1">Auto / Car Loan</label>
                                     <div className="relative">
                                         <span className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500 font-medium">₹</span>
                                         <input
@@ -154,12 +154,12 @@ export default function NetWorthCalculator() {
                                             value={autoLoan === "" ? "" : autoLoan.toLocaleString('en-IN')}
                                             onChange={handleNumberInput(setAutoLoan)}
                                             placeholder="0"
-                                            className="w-full pl-8 pr-4 py-2.5 rounded-xl border border-zinc-200 dark:border-zinc-800 focus:ring-red-500 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white outline-none transition-all"
+                                            className="w-full pl-8 pr-4 py-2.5 rounded-xl border border-zinc-200 dark:border-zinc-800 focus:ring-red-500 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white outline-none transition-all text-sm"
                                         />
                                     </div>
                                 </div>
                                 <div>
-                                    <label className="block text-sm font-semibold text-zinc-700 dark:text-zinc-300 mb-1">Credit Card Debt</label>
+                                    <label className="block text-xs sm:text-sm font-semibold text-zinc-700 dark:text-zinc-300 mb-1">Credit Card Debt</label>
                                     <div className="relative">
                                         <span className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500 font-medium">₹</span>
                                         <input
@@ -167,12 +167,12 @@ export default function NetWorthCalculator() {
                                             value={creditCard === "" ? "" : creditCard.toLocaleString('en-IN')}
                                             onChange={handleNumberInput(setCreditCard)}
                                             placeholder="0"
-                                            className="w-full pl-8 pr-4 py-2.5 rounded-xl border border-zinc-200 dark:border-zinc-800 focus:ring-red-500 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white outline-none transition-all"
+                                            className="w-full pl-8 pr-4 py-2.5 rounded-xl border border-zinc-200 dark:border-zinc-800 focus:ring-red-500 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white outline-none transition-all text-sm"
                                         />
                                     </div>
                                 </div>
                                 <div>
-                                    <label className="block text-sm font-semibold text-zinc-700 dark:text-zinc-300 mb-1">Other Loans (Personal, Education)</label>
+                                    <label className="block text-xs sm:text-sm font-semibold text-zinc-700 dark:text-zinc-300 mb-1">Other Loans (Personal, Education)</label>
                                     <div className="relative">
                                         <span className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500 font-medium">₹</span>
                                         <input
@@ -180,7 +180,7 @@ export default function NetWorthCalculator() {
                                             value={otherLiabilities === "" ? "" : otherLiabilities.toLocaleString('en-IN')}
                                             onChange={handleNumberInput(setOtherLiabilities)}
                                             placeholder="0"
-                                            className="w-full pl-8 pr-4 py-2.5 rounded-xl border border-zinc-200 dark:border-zinc-800 focus:ring-red-500 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white outline-none transition-all"
+                                            className="w-full pl-8 pr-4 py-2.5 rounded-xl border border-zinc-200 dark:border-zinc-800 focus:ring-red-500 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white outline-none transition-all text-sm"
                                         />
                                     </div>
                                 </div>
@@ -189,14 +189,14 @@ export default function NetWorthCalculator() {
                     </div>
 
                     {/* Result Section */}
-                    <div className="w-full lg:w-1/2 flex flex-col justify-center p-8 bg-zinc-50 dark:bg-zinc-900/50 rounded-2xl border border-zinc-200 dark:border-zinc-800">
+                    <div className="w-full lg:w-1/2 flex flex-col justify-center p-5 sm:p-8 bg-zinc-50 dark:bg-zinc-900/50 rounded-2xl border border-zinc-200 dark:border-zinc-800">
                         
-                        <div className="flex flex-col items-center mb-8 pb-8 border-b border-zinc-200 dark:border-zinc-800">
-                            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-blue-100 text-blue-600 dark:bg-blue-900/50 dark:text-blue-400 mb-4">
-                                <AccountBalanceWalletIcon className="h-8 w-8" />
+                        <div className="flex flex-col items-center mb-6 sm:mb-8 pb-6 sm:pb-8 border-b border-zinc-200 dark:border-zinc-800">
+                            <div className="flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-full bg-blue-100 text-blue-600 dark:bg-blue-900/50 dark:text-blue-400 mb-3 sm:mb-4">
+                                <AccountBalanceWalletIcon className="h-7 w-7 sm:h-8 sm:w-8" />
                             </div>
-                            <h3 className="text-xl font-medium text-zinc-600 dark:text-zinc-400 mb-2">Your Net Worth</h3>
-                            <p className={`text-5xl font-bold break-all text-center ${result.netWorth < 0 ? 'text-red-500' : 'text-zinc-900 dark:text-white'}`}>
+                            <h3 className="text-lg sm:text-xl font-medium text-zinc-600 dark:text-zinc-400 mb-1 sm:mb-2">Your Net Worth</h3>
+                            <p className={`text-3xl sm:text-4xl md:text-5xl font-bold break-words text-center ${result.netWorth < 0 ? 'text-red-500' : 'text-zinc-900 dark:text-white'}`}>
                                 {formatCurrency(result.netWorth)}
                             </p>
                         </div>

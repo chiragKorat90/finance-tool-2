@@ -4,6 +4,7 @@ import React, { useState, useMemo, useEffect } from "react";
 import Link from "next/link";
 import { ArrowBack, Search, ExpandMore, ContentCopy, ThumbUp, ThumbDown, CheckCircle } from "@mui/icons-material";
 import { faqs, FAQ } from "../data/faqs";
+import BannerAd from "../components/BannerAd";
 
 export default function FAQPage() {
     const [searchQuery, setSearchQuery] = useState("");
@@ -233,6 +234,12 @@ export default function FAQPage() {
                         </div>
                     ))
                 )}
+            </div>
+
+            {/* In-Feed Banner Ads (1 on mobile, 2 side-by-side on tablet) */}
+            <div className="flex min-[1500px]:hidden flex-col md:flex-row justify-center items-center gap-4 sm:gap-6 py-8 w-full">
+                <BannerAd adKey="faq-page-bottom-1" />
+                <BannerAd adKey="faq-page-bottom-2" className="hidden md:flex" />
             </div>
 </div>
     );

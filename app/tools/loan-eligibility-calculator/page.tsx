@@ -114,15 +114,15 @@ export default function LoanEligibilityCalculator() {
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
                 suppressHydrationWarning
             />
-                        <div className="w-full max-w-[1600px] mx-auto flex flex-col xl:flex-row justify-center items-start gap-8 px-4 relative">
-                <div className="flex-1 w-full max-w-5xl min-w-0 flex flex-col gap-8 mx-auto">
+            <div className="w-full max-w-[1600px] mx-auto flex flex-col xl:flex-row justify-center items-start gap-6 sm:gap-8 px-2 sm:px-4 relative">
+                <div className="flex-1 w-full max-w-5xl min-w-0 flex flex-col gap-6 sm:gap-8 mx-auto">
                     <ToolWrapper
                 title="Loan Eligibility Calculator"
                 description="Find out the maximum loan amount you can afford based on your monthly EMI capacity."
             >
-                <div className="flex flex-col lg:flex-row gap-8 w-full max-w-5xl mx-auto py-4">
+                <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 w-full max-w-5xl mx-auto py-2 sm:py-4">
                     {/* Input Section */}
-                    <div className="w-full lg:w-1/2 space-y-6 bg-zinc-50 dark:bg-zinc-900/50 p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800">
+                    <div className="w-full lg:w-1/2 space-y-4 sm:space-y-6 bg-zinc-50 dark:bg-zinc-900/50 p-4 sm:p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800">
                         <div>
                             <label className="block text-sm font-semibold text-zinc-700 dark:text-zinc-300 mb-2">
                                 Affordable Monthly EMI
@@ -215,15 +215,15 @@ export default function LoanEligibilityCalculator() {
                     </div>
 
                     {/* Result Section */}
-                    <div className="w-full lg:w-1/2 flex flex-col justify-center items-center p-8 bg-zinc-100 dark:bg-zinc-900/50 rounded-2xl border border-zinc-200 dark:border-zinc-800 overflow-hidden text-center">
-                        <div className="flex h-20 w-20 items-center justify-center rounded-full bg-blue-100 text-blue-600 dark:bg-blue-900/50 dark:text-blue-400 mb-6">
-                            <TrendingUpIcon className="h-10 w-10" />
+                    <div className="w-full lg:w-1/2 flex flex-col justify-center items-center p-5 sm:p-8 bg-zinc-100 dark:bg-zinc-900/50 rounded-2xl border border-zinc-200 dark:border-zinc-800 overflow-hidden text-center">
+                        <div className="flex h-14 w-14 sm:h-18 sm:w-18 items-center justify-center rounded-full bg-blue-100 text-blue-600 dark:bg-blue-900/50 dark:text-blue-400 mb-4 sm:mb-6">
+                            <TrendingUpIcon className="h-7 w-7 sm:h-9 sm:w-9" />
                         </div>
-                        <h3 className="text-xl font-medium text-zinc-600 dark:text-zinc-400 mb-2">Maximum Eligible Loan</h3>
-                        <p className="text-5xl font-bold text-zinc-900 dark:text-white break-all mb-4">
+                        <h3 className="text-lg sm:text-xl font-medium text-zinc-600 dark:text-zinc-400 mb-1 sm:mb-2">Maximum Eligible Loan</h3>
+                        <p className="text-3xl sm:text-4xl md:text-5xl font-bold text-zinc-900 dark:text-white break-words mb-3 sm:mb-4">
                             {formatCurrency(maxLoan)}
                         </p>
-                        <p className="text-sm text-zinc-500 dark:text-zinc-400 max-w-sm mt-4">
+                        <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 max-w-sm mt-2 sm:mt-4">
                             Based on a monthly payment of <strong>{formatCurrency(Number(emi))}</strong> at <strong>{Number(rate)}%</strong> interest over <strong>{Number(tenure)} {tenureType}</strong>.
                         </p>
                     </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowBack } from "@mui/icons-material";
+import BannerAd from "@/app/components/BannerAd";
 
 export default function TermsPage() {
     return (
@@ -90,6 +91,12 @@ export default function TermsPage() {
                     </p>
                 </div>
             </div>
-</div>
+
+            {/* In-Feed Banner Ads (1 on mobile, 2 side-by-side on tablet) */}
+            <div className="flex min-[1500px]:hidden flex-col md:flex-row justify-center items-center gap-4 sm:gap-6 py-8 w-full">
+                <BannerAd adKey="terms-page-bottom-1" />
+                <BannerAd adKey="terms-page-bottom-2" className="hidden md:flex" />
+            </div>
+        </div>
     );
 }

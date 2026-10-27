@@ -17,6 +17,7 @@ import { useRouter } from "next/navigation";
 
 import { tools } from "./data/tools";
 import { categories } from "./data/categories";
+import BannerAd from "./components/BannerAd";
 
 const iconMap: Record<string, React.ElementType> = {
   Calculate: Calculate,
@@ -155,37 +156,43 @@ export default function Home() {
             </div>
 
             {/* Right Column: Visual Composition */}
-            <div className="relative h-[300px] sm:h-[350px] w-full mt-4 lg:mt-0 flex items-center justify-center">
-              <div className="relative w-[500px] h-[350px] scale-[0.65] sm:scale-75 md:scale-90 lg:scale-100 origin-center">
+            <div className="relative h-[280px] sm:h-[340px] md:h-[360px] w-full mt-4 lg:mt-0 flex items-center justify-center overflow-hidden">
+              <div className="relative w-[340px] sm:w-[440px] md:w-[500px] h-[280px] sm:h-[340px] scale-[0.75] sm:scale-85 md:scale-95 lg:scale-100 origin-center">
                 {/* Main Card */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-80 bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-400 dark:border-zinc-800 shadow-2xl dark:shadow-none z-10 flex flex-col items-center justify-center p-6 transform -rotate-6 hover:rotate-0 transition-transform duration-500">
-                  <Calculate className="h-24 w-24 text-blue-500 mb-6" />
-                  <div className="w-3/4 h-3 bg-zinc-200 dark:bg-zinc-800 rounded-full mb-4"></div>
-                  <div className="w-full h-3 bg-zinc-200 dark:bg-zinc-800 rounded-full mb-4"></div>
-                  <div className="w-5/6 h-3 bg-zinc-200 dark:bg-zinc-800 rounded-full"></div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-52 sm:w-64 h-68 sm:h-80 bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-400 dark:border-zinc-800 shadow-2xl dark:shadow-none z-10 flex flex-col items-center justify-center p-5 sm:p-6 transform -rotate-6 hover:rotate-0 transition-transform duration-500">
+                  <Calculate className="h-16 w-16 sm:h-24 sm:w-24 text-blue-500 mb-4 sm:mb-6" />
+                  <div className="w-3/4 h-2.5 sm:h-3 bg-zinc-200 dark:bg-zinc-800 rounded-full mb-3 sm:mb-4"></div>
+                  <div className="w-full h-2.5 sm:h-3 bg-zinc-200 dark:bg-zinc-800 rounded-full mb-3 sm:mb-4"></div>
+                  <div className="w-5/6 h-2.5 sm:h-3 bg-zinc-200 dark:bg-zinc-800 rounded-full"></div>
                 </div>
 
                 {/* Sub Card 1 */}
-                <div className="absolute top-[15%] right-[5%] w-36 h-36 bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-400 dark:border-zinc-800 shadow-xl dark:shadow-none z-20 flex flex-col items-center justify-center p-4 transform rotate-12 hover:rotate-0 transition-transform duration-500 hover:scale-110">
-                  <TrendingUp className="h-12 w-12 text-green-500 mb-3" />
-                  <span className="font-bold text-zinc-900 dark:text-white">SIP</span>
+                <div className="absolute top-[10%] right-[2%] sm:right-[5%] w-28 h-28 sm:w-36 sm:h-36 bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-400 dark:border-zinc-800 shadow-xl dark:shadow-none z-20 flex flex-col items-center justify-center p-3 sm:p-4 transform rotate-12 hover:rotate-0 transition-transform duration-500 hover:scale-110">
+                  <TrendingUp className="h-9 w-9 sm:h-12 sm:w-12 text-green-500 mb-2 sm:mb-3" />
+                  <span className="font-bold text-sm sm:text-base text-zinc-900 dark:text-white">SIP</span>
                 </div>
 
                 {/* Sub Card 2 */}
-                <div className="absolute bottom-[15%] left-[5%] w-36 h-36 bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-400 dark:border-zinc-800 shadow-xl dark:shadow-none z-20 flex flex-col items-center justify-center p-4 transform -rotate-12 hover:rotate-0 transition-transform duration-500 hover:scale-110">
-                  <ShowChart className="h-12 w-12 text-purple-500 mb-3" />
-                  <span className="font-bold text-zinc-900 dark:text-white">Growth</span>
+                <div className="absolute bottom-[10%] left-[2%] sm:left-[5%] w-28 h-28 sm:w-36 sm:h-36 bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-400 dark:border-zinc-800 shadow-xl dark:shadow-none z-20 flex flex-col items-center justify-center p-3 sm:p-4 transform -rotate-12 hover:rotate-0 transition-transform duration-500 hover:scale-110">
+                  <ShowChart className="h-9 w-9 sm:h-12 sm:w-12 text-purple-500 mb-2 sm:mb-3" />
+                  <span className="font-bold text-sm sm:text-base text-zinc-900 dark:text-white">Growth</span>
                 </div>
 
                 {/* Decorative Elements */}
-                <div className="absolute top-1/2 right-[15%] w-24 h-24 border-t-2 border-r-2 border-dashed border-zinc-400 dark:border-zinc-700 rounded-tr-3xl -z-10 opacity-50"></div>
-                <div className="absolute bottom-1/2 left-[15%] w-24 h-24 border-b-2 border-l-2 border-dashed border-zinc-400 dark:border-zinc-700 rounded-bl-3xl -z-10 opacity-50"></div>
+                <div className="absolute top-1/2 right-[15%] w-20 sm:w-24 h-20 sm:h-24 border-t-2 border-r-2 border-dashed border-zinc-400 dark:border-zinc-700 rounded-tr-3xl -z-10 opacity-50"></div>
+                <div className="absolute bottom-1/2 left-[15%] w-20 sm:w-24 h-20 sm:h-24 border-b-2 border-l-2 border-dashed border-zinc-400 dark:border-zinc-700 rounded-bl-3xl -z-10 opacity-50"></div>
               </div>
             </div>
 
           </div>
         </div>
       </section>
+
+      {/* Mobile / Tablet In-Feed Banner Ads below Hero (1 on mobile, 2 side-by-side on tablet) */}
+      <div className="flex min-[1500px]:hidden flex-col md:flex-row justify-center items-center gap-4 sm:gap-6 py-6 px-4 w-full bg-zinc-50 dark:bg-zinc-950 border-b border-zinc-200 dark:border-zinc-800">
+        <BannerAd adKey="home-hero-bottom-1" />
+        <BannerAd adKey="home-hero-bottom-2" className="hidden md:flex" />
+      </div>
 
       {/* SEO Content Section */}
       <section className="bg-white dark:bg-zinc-950 px-4 py-16 sm:px-6 lg:px-8 border-b border-zinc-200 dark:border-zinc-800">
@@ -332,6 +339,12 @@ export default function Home() {
             </button>
           </div>
         )}
+
+        {/* Mobile / Tablet In-Feed Banner Ads below Tools Grid (1 on mobile, 2 side-by-side on tablet) */}
+        <div className="flex min-[1500px]:hidden flex-col md:flex-row justify-center items-center gap-4 sm:gap-6 pt-8 w-full">
+          <BannerAd adKey="home-tools-bottom-1" />
+          <BannerAd adKey="home-tools-bottom-2" className="hidden md:flex" />
+        </div>
       </section>
 
 
@@ -382,6 +395,12 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Mobile / Tablet In-Feed Banner Ads (1 on mobile, 2 side-by-side on tablet) */}
+      <div className="flex min-[1500px]:hidden flex-col md:flex-row justify-center items-center gap-4 sm:gap-6 py-8 px-4 w-full bg-zinc-50 dark:bg-zinc-950">
+        <BannerAd adKey="home-mobile-mid-1" />
+        <BannerAd adKey="home-mobile-mid-2" className="hidden md:flex" />
+      </div>
+
       {/* FAQ Section */}
       <section className="bg-white dark:bg-zinc-950 py-16 sm:py-24 border-t border-zinc-200 dark:border-zinc-800">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
@@ -414,7 +433,7 @@ export default function Home() {
           </div>
 
           <div
-            className="relative h-[380px] w-full flex items-center justify-center py-4 cursor-grab active:cursor-grabbing select-none"
+            className="relative h-[360px] sm:h-[380px] w-full flex items-center justify-center py-4 cursor-grab active:cursor-grabbing select-none overflow-hidden"
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
@@ -452,21 +471,21 @@ export default function Home() {
               const diff = (idx - faqIndex + 6) % 6;
               let positionClass = "";
               if (diff === 0) positionClass = "z-30 translate-x-0 scale-100 opacity-100";
-              else if (diff === 1) positionClass = "z-20 translate-x-[40%] scale-90 opacity-100 brightness-75";
-              else if (diff === 5) positionClass = "z-20 -translate-x-[40%] scale-90 opacity-100 brightness-75";
-              else if (diff === 2) positionClass = "z-10 translate-x-[70%] scale-75 opacity-100 brightness-50";
-              else if (diff === 4) positionClass = "z-10 -translate-x-[70%] scale-75 opacity-100 brightness-50";
-              else positionClass = "z-0 translate-x-0 scale-50 opacity-0";
+              else if (diff === 1) positionClass = "z-20 translate-x-[25%] sm:translate-x-[40%] scale-90 opacity-100 brightness-75";
+              else if (diff === 5) positionClass = "z-20 -translate-x-[25%] sm:-translate-x-[40%] scale-90 opacity-100 brightness-75";
+              else if (diff === 2) positionClass = "z-10 translate-x-[50%] sm:translate-x-[70%] scale-75 opacity-70 brightness-50 hidden sm:block";
+              else if (diff === 4) positionClass = "z-10 -translate-x-[50%] sm:-translate-x-[70%] scale-75 opacity-70 brightness-50 hidden sm:block";
+              else positionClass = "z-0 translate-x-0 scale-50 opacity-0 pointer-events-none";
 
               return (
                 <div
                   key={idx}
-                  className={`absolute w-full max-w-lg rounded-3xl bg-white p-8 sm:p-10 shadow-2xl transition-all duration-500 border border-zinc-200 dark:border-zinc-800 dark:bg-zinc-900 ${positionClass}`}
+                  className={`absolute w-[92%] sm:w-full max-w-lg rounded-2xl sm:rounded-3xl bg-white p-6 sm:p-10 shadow-xl transition-all duration-500 border border-zinc-200 dark:border-zinc-800 dark:bg-zinc-900 ${positionClass}`}
                 >
-                  <h4 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white mb-6">
+                  <h4 className="text-lg sm:text-2xl font-bold text-zinc-900 dark:text-white mb-4 sm:mb-6">
                     {faq.q}
                   </h4>
-                  <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  <p className="text-sm sm:text-base md:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
                     {faq.a}
                   </p>
                 </div>

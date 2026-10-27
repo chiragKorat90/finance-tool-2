@@ -113,15 +113,15 @@ export default function InflationCalculator() {
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
                 suppressHydrationWarning
             />
-                        <div className="w-full max-w-[1600px] mx-auto flex flex-col xl:flex-row justify-center items-start gap-8 px-4 relative">
-                <div className="flex-1 w-full max-w-5xl min-w-0 flex flex-col gap-8 mx-auto">
+            <div className="w-full max-w-[1600px] mx-auto flex flex-col xl:flex-row justify-center items-start gap-6 sm:gap-8 px-2 sm:px-4 relative">
+                <div className="flex-1 w-full max-w-5xl min-w-0 flex flex-col gap-6 sm:gap-8 mx-auto">
                     <ToolWrapper
                 title="Inflation Calculator"
                 description="See how inflation degrades the purchasing power of your money over time."
             >
-                <div className="flex flex-col lg:flex-row gap-8 w-full max-w-5xl mx-auto py-4">
+                <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 w-full max-w-5xl mx-auto py-2 sm:py-4">
                     {/* Input Section */}
-                    <div className="w-full lg:w-1/2 space-y-6 bg-zinc-50 dark:bg-zinc-900/50 p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800">
+                    <div className="w-full lg:w-1/2 space-y-4 sm:space-y-6 bg-zinc-50 dark:bg-zinc-900/50 p-4 sm:p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800">
                         <div>
                             <label className="block text-sm font-semibold text-zinc-700 dark:text-zinc-300 mb-2">
                                 Current Amount / Expense
@@ -179,27 +179,27 @@ export default function InflationCalculator() {
                     </div>
 
                     {/* Result Section */}
-                    <div className="w-full lg:w-1/2 flex flex-col justify-center p-8 bg-rose-50 dark:bg-rose-950/20 rounded-2xl border border-rose-100 dark:border-rose-900/30 overflow-hidden">
+                    <div className="w-full lg:w-1/2 flex flex-col justify-center p-5 sm:p-8 bg-rose-50 dark:bg-rose-950/20 rounded-2xl border border-rose-100 dark:border-rose-900/30 overflow-hidden">
                         
-                        <div className="flex flex-col items-center mb-8 pb-8 border-b border-rose-100 dark:border-rose-900/30">
-                            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-rose-100 text-rose-600 dark:bg-rose-900/50 dark:text-rose-400 mb-4">
-                                <ShowChartIcon className="h-8 w-8" />
+                        <div className="flex flex-col items-center mb-6 sm:mb-8 pb-6 sm:pb-8 border-b border-rose-100 dark:border-rose-900/30">
+                            <div className="flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-full bg-rose-100 text-rose-600 dark:bg-rose-900/50 dark:text-rose-400 mb-3 sm:mb-4">
+                                <ShowChartIcon className="h-7 w-7 sm:h-8 sm:w-8" />
                             </div>
-                            <h3 className="text-xl font-medium text-zinc-600 dark:text-zinc-400 mb-2">Future Cost</h3>
-                            <p className="text-5xl font-bold text-zinc-900 dark:text-white break-all text-center">
+                            <h3 className="text-lg sm:text-xl font-medium text-zinc-600 dark:text-zinc-400 mb-1 sm:mb-2">Future Cost</h3>
+                            <p className="text-3xl sm:text-4xl md:text-5xl font-bold text-zinc-900 dark:text-white break-words text-center">
                                 {formatCurrency(result.futureValue)}
                             </p>
-                            <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-3 text-center max-w-sm">
+                            <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 mt-2 sm:mt-3 text-center max-w-sm">
                                 To buy something that costs <strong>{formatCurrency(Number(amount))}</strong> today, you will need <strong>{formatCurrency(result.futureValue)}</strong> in {Number(tenure)} years.
                             </p>
                         </div>
 
                         <div className="w-full text-center">
-                            <h3 className="text-sm font-semibold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mb-2">Purchasing Power Loss</h3>
-                            <p className="text-rose-600 dark:text-rose-400 text-2xl font-bold">
+                            <h3 className="text-xs sm:text-sm font-semibold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mb-1 sm:mb-2">Purchasing Power Loss</h3>
+                            <p className="text-rose-600 dark:text-rose-400 text-xl sm:text-2xl font-bold">
                                 {formatCurrency(result.degradedValue)}
                             </p>
-                            <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-2 max-w-sm mx-auto">
+                            <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 mt-2 max-w-sm mx-auto">
                                 If you keep <strong>{formatCurrency(Number(amount))}</strong> in cash for {Number(tenure)} years, its real value (buying power) will drop to just <strong>{formatCurrency(result.degradedValue)}</strong>.
                             </p>
                         </div>

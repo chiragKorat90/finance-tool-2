@@ -100,15 +100,15 @@ export default function CreditUtilizationCalculator() {
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
                 suppressHydrationWarning
             />
-                        <div className="w-full max-w-[1600px] mx-auto flex flex-col xl:flex-row justify-center items-start gap-8 px-4 relative">
-                <div className="flex-1 w-full max-w-5xl min-w-0 flex flex-col gap-8 mx-auto">
+            <div className="w-full max-w-[1600px] mx-auto flex flex-col xl:flex-row justify-center items-start gap-6 sm:gap-8 px-2 sm:px-4 relative">
+                <div className="flex-1 w-full max-w-5xl min-w-0 flex flex-col gap-6 sm:gap-8 mx-auto">
                     <ToolWrapper
                 title="Credit Utilization Calculator"
                 description="Calculate your credit utilization ratio to understand and improve your credit score health."
             >
-                <div className="flex flex-col lg:flex-row gap-8 w-full max-w-5xl mx-auto py-4">
+                <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 w-full max-w-5xl mx-auto py-2 sm:py-4">
                     {/* Input Section */}
-                    <div className="w-full lg:w-1/2 space-y-6 bg-zinc-50 dark:bg-zinc-900/50 p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800">
+                    <div className="w-full lg:w-1/2 space-y-4 sm:space-y-6 bg-zinc-50 dark:bg-zinc-900/50 p-4 sm:p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800">
                         <div>
                             <label className="block text-sm font-semibold text-zinc-700 dark:text-zinc-300 mb-2">
                                 Total Credit Limit
@@ -149,29 +149,29 @@ export default function CreditUtilizationCalculator() {
                     </div>
 
                     {/* Result Section */}
-                    <div className="w-full lg:w-1/2 flex flex-col justify-center items-center p-8 bg-teal-50 dark:bg-teal-950/20 rounded-2xl border border-teal-100 dark:border-teal-900/30 overflow-hidden text-center">
+                    <div className="w-full lg:w-1/2 flex flex-col justify-center items-center p-5 sm:p-8 bg-teal-50 dark:bg-teal-950/20 rounded-2xl border border-teal-100 dark:border-teal-900/30 overflow-hidden text-center">
                         
-                        <div className="relative w-64 h-32 mb-8 overflow-hidden">
+                        <div className="relative w-56 sm:w-64 h-28 sm:h-32 mb-6 sm:mb-8 overflow-hidden">
                             {/* Gauge Background */}
-                            <div className="absolute top-0 left-0 w-full h-64 rounded-full border-[24px] border-zinc-200 dark:border-zinc-800 box-border"></div>
+                            <div className="absolute top-0 left-0 w-full h-56 sm:h-64 rounded-full border-[20px] sm:border-[24px] border-zinc-200 dark:border-zinc-800 box-border"></div>
                             {/* Gauge Color Segments */}
-                            <div className="absolute top-0 left-0 w-full h-64 rounded-full border-[24px] border-transparent border-t-green-500 border-r-blue-500 border-b-yellow-500 border-l-red-500 box-border transform -rotate-45 opacity-80"></div>
+                            <div className="absolute top-0 left-0 w-full h-56 sm:h-64 rounded-full border-[20px] sm:border-[24px] border-transparent border-t-green-500 border-r-blue-500 border-b-yellow-500 border-l-red-500 box-border transform -rotate-45 opacity-80"></div>
                             
                             {/* Mask bottom half */}
-                            <div className="absolute bottom-0 left-0 w-full h-32 bg-teal-50 dark:bg-zinc-950/50"></div>
+                            <div className="absolute bottom-0 left-0 w-full h-28 sm:h-32 bg-teal-50 dark:bg-zinc-950/50"></div>
 
                             {/* Needle */}
                             <div 
-                                className="absolute bottom-0 left-1/2 w-1 h-32 bg-zinc-800 dark:bg-zinc-200 origin-bottom transition-transform duration-1000 ease-out z-10 rounded-t-full shadow-lg"
+                                className="absolute bottom-0 left-1/2 w-1 h-28 sm:h-32 bg-zinc-800 dark:bg-zinc-200 origin-bottom transition-transform duration-1000 ease-out z-10 rounded-t-full shadow-lg"
                                 style={{ transform: `translateX(-50%) rotate(${needleRotation}deg)` }}
                             >
                                 <div className="absolute -bottom-2 -left-1.5 w-4 h-4 rounded-full bg-zinc-900 dark:bg-zinc-100"></div>
                             </div>
                         </div>
 
-                        <h3 className="text-xl font-medium text-zinc-600 dark:text-zinc-400 mb-2">Utilization Ratio</h3>
-                        <div className="flex items-baseline gap-2 mb-2">
-                            <p className="text-5xl font-bold text-zinc-900 dark:text-white">
+                        <h3 className="text-lg sm:text-xl font-medium text-zinc-600 dark:text-zinc-400 mb-1 sm:mb-2">Utilization Ratio</h3>
+                        <div className="flex items-baseline gap-2 mb-1 sm:mb-2">
+                            <p className="text-4xl sm:text-5xl font-bold text-zinc-900 dark:text-white">
                                 {result.utilizationRatio}%
                             </p>
                         </div>

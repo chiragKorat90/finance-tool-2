@@ -4,6 +4,7 @@ import React, { useState, useMemo } from "react";
 import Link from "next/link";
 import { ArrowBack, Search, Article, Security, TrendingUp } from "@mui/icons-material";
 import { articles } from "../data/articles";
+import BannerAd from "../components/BannerAd";
 
 export default function BlogPage() {
     const [searchQuery, setSearchQuery] = useState("");
@@ -150,6 +151,12 @@ export default function BlogPage() {
                                         </div>
                                     </Link>
                                 ))}
+                            </div>
+
+                            {/* Mobile / Tablet In-Feed Banner Ads (1 on mobile, 2 side-by-side on tablet) */}
+                            <div className="flex min-[1500px]:hidden flex-col md:flex-row justify-center items-center gap-4 sm:gap-6 py-4 w-full">
+                                <BannerAd adKey="blog-list-mobile-1" />
+                                <BannerAd adKey="blog-list-mobile-2" className="hidden md:flex" />
                             </div>
 
                             {filteredArticles.length > visibleCount && (

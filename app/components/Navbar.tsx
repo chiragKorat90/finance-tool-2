@@ -36,13 +36,13 @@ export default function Navbar() {
     };
 
     return (
-        <header className="sticky top-0 z-50 w-full border-b border-zinc-200/80 bg-white/80 backdrop-blur-md dark:border-zinc-800/80 dark:bg-zinc-950/80 transition-colors duration-300">
-            <div className="mx-auto flex h-20 max-w-[1600px] items-center justify-between px-4 sm:px-6 lg:px-8">
+        <header suppressHydrationWarning className="sticky top-0 z-50 w-full border-b border-zinc-200/80 bg-white/80 backdrop-blur-md dark:border-zinc-800/80 dark:bg-zinc-950/80 transition-colors duration-300">
+            <div suppressHydrationWarning className="mx-auto flex h-16 sm:h-20 max-w-[1600px] items-center justify-between px-3 sm:px-6 lg:px-8">
                 {/* Logo */}
-                <div className="flex flex-1 justify-start">
+                <div className="flex flex-1 justify-start min-w-0">
                     <Link href="/" className="flex items-center gap-2 group flex-shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 rounded-lg">
-                        <div className="flex h-20 w-52 items-center justify-start transition-transform group-hover:scale-105">
-                            <img src="/logo.png" alt="Finance Tools Logo - Financial Tools" className="h-full w-full object-contain" />
+                        <div className="flex h-12 sm:h-16 md:h-20 w-36 sm:w-44 md:w-52 items-center justify-start transition-transform group-hover:scale-105">
+                            <img src="/logo.png" alt="Finance Tools Logo - Financial Tools" className="h-full w-full object-contain object-left" />
                         </div>
                     </Link>
                 </div>

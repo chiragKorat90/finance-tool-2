@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowBack } from "@mui/icons-material";
 import { articles } from "../../data/articles";
+import BannerAd from "@/app/components/BannerAd";
 
 export async function generateStaticParams() {
     return articles.map((article) => ({
@@ -19,7 +20,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
     }
 
     return (
-        <div className="mx-auto w-full max-w-[1600px] px-4 py-8 sm:px-6 sm:py-12 lg:px-8 flex-1 flex flex-col xl:flex-row gap-8 items-start justify-center">
+        <div className="mx-auto w-full max-w-[1600px] px-3 sm:px-6 sm:py-12 lg:px-8 flex-1 flex flex-col xl:flex-row gap-6 sm:gap-8 items-start justify-center min-w-0">
 
 
             {/* Main Article Content */}
@@ -50,6 +51,12 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                         className="max-w-none text-lg leading-relaxed text-zinc-700 dark:text-zinc-300 [&>h2]:text-2xl [&>h2]:font-bold [&>h2]:text-zinc-900 dark:[&>h2]:text-white [&>h2]:mt-10 [&>h2]:mb-4 [&>p]:mb-6 [&>ul]:list-disc [&>ul]:pl-6 [&>ul]:mb-6 [&>ol]:list-decimal [&>ol]:pl-6 [&>ol]:mb-6 [&>li]:mb-2 [&_strong]:font-semibold [&_strong]:text-zinc-900 dark:[&_strong]:text-white"
                         dangerouslySetInnerHTML={{ __html: article.content }}
                     />
+
+                    {/* Mobile / Tablet In-Feed Banner Ads (1 on mobile, 2 side-by-side on tablet) */}
+                    <div className="flex min-[1500px]:hidden flex-col md:flex-row justify-center items-center gap-4 sm:gap-6 mt-8 pt-6 border-t border-zinc-100 dark:border-zinc-800">
+                        <BannerAd adKey="blog-detail-mobile-1" />
+                        <BannerAd adKey="blog-detail-mobile-2" className="hidden md:flex" />
+                    </div>
                 </article>
             </div>
 

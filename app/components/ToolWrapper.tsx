@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowBack } from "@mui/icons-material";
+import BannerAd from "./BannerAd";
 
 interface ToolWrapperProps {
     title: string;
@@ -35,31 +36,37 @@ export default function ToolWrapper({
     const gradient = accentMap[accentColor] ?? accentMap["red"];
 
     return (
-        <div className={`mx-auto w-full max-w-5xl px-4 py-4 sm:px-6 sm:py-6 lg:px-8 flex-1 flex flex-col ${className ? className : ''}`}>
+        <div className={`mx-auto w-full max-w-5xl px-3 sm:px-6 sm:py-6 lg:px-8 flex-1 flex flex-col min-w-0 ${className ? className : ''}`}>
             {/* Header Row */}
-            <div className="mb-6 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 mt-2">
+            <div className="mb-4 sm:mb-6 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 mt-1 sm:mt-2">
                 <Link
                     href="/"
-                    className="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800/60 dark:hover:bg-zinc-800 text-sm font-medium text-zinc-600 dark:text-zinc-300 transition-colors group shrink-0 w-fit border border-zinc-200 dark:border-zinc-700/50"
+                    className="inline-flex items-center justify-center gap-1.5 px-3 sm:px-4 py-2 rounded-xl bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800/60 dark:hover:bg-zinc-800 text-xs sm:text-sm font-medium text-zinc-600 dark:text-zinc-300 transition-colors group shrink-0 w-fit border border-zinc-200 dark:border-zinc-700/50"
                 >
                     <ArrowBack className="h-4 w-4 transition-transform group-hover:-translate-x-0.5" />
                     Back
                 </Link>
                 
                 <div>
-                    <h1 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-white sm:text-3xl">
+                    <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-zinc-900 dark:text-white">
                         {title}
                     </h1>
-                    <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
+                    <p className="mt-1 text-xs sm:text-sm text-zinc-500 dark:text-zinc-400">
                         {description}
                     </p>
                 </div>
             </div>
 
-                {/* Card */}
-                <div className="flex-1 rounded-2xl sm:rounded-3xl border border-zinc-200 bg-white p-5 sm:p-8 shadow-sm dark:border-zinc-800 dark:bg-zinc-950 transition-all duration-300 flex flex-col justify-center min-h-[380px]">
-                    {children}
-                </div>
+            {/* Card */}
+            <div className="flex-1 rounded-2xl sm:rounded-3xl border border-zinc-200 bg-white p-4 sm:p-6 md:p-8 shadow-sm dark:border-zinc-800 dark:bg-zinc-950 transition-all duration-300 flex flex-col justify-center min-h-[350px] w-full min-w-0">
+                {children}
+            </div>
+
+            {/* Mobile / Tablet In-Feed Banner Ads (1 on mobile, 2 side-by-side on tablet) */}
+            <div className="flex min-[1500px]:hidden flex-col md:flex-row justify-center items-center gap-4 sm:gap-6 my-6 w-full">
+                <BannerAd adKey="tool-mobile-bottom-1" />
+                <BannerAd adKey="tool-mobile-bottom-2" className="hidden md:flex" />
+            </div>
         </div>
     );
 }
